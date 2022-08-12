@@ -10,27 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Data.SqlClient;
 
 namespace Udlåns_system
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Udlån.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Udlån : Window
     {
-        string con_string = "datasource=localhost;database=udlaans system;port=3306;username=root;password=";
-        public MainWindow()
+        public Udlån()
         {
             InitializeComponent();
-        }
-
-        private void Udlån_Click(object sender, RoutedEventArgs e)
-        {
-            Udlån udlån_form = new Udlån();
-            udlån_form.Show();
         }
     }
 }
