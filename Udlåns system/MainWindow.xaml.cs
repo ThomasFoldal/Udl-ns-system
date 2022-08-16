@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace Udlåns_system
 {
@@ -21,16 +23,65 @@ namespace Udlåns_system
     /// </summary>
     public partial class MainWindow : Window
     {
-        string con_string = "datasource=localhost;database=udlaans system;port=3306;username=root;password=";
+        MainWindow main;
+        MySqlConnection con;
         public MainWindow()
         {
+            string con_string = "datasource=localhost;database=udlaans system;port=3306;username=root;password=";
+            con = new MySqlConnection(con_string);
+            MySqlCommand cmd = new MySqlCommand();
             InitializeComponent();
+            main = this;
         }
 
         private void Udlån_Click(object sender, RoutedEventArgs e)
         {
-            Udlån udlån_form = new Udlån();
-            udlån_form.Show();
+            Recept ny_Recept = new Recept();
+            ny_Recept.Show();
+            main.IsEnabled = false;
+        }
+
+        private void Vis_Ud_Click(object sender, RoutedEventArgs e)
+        {
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "visUdlaant";
+            cmd.CommandType = CommandType.StoredProcedure;
+            dataTable.ItemsSource = cmd.ExecuteReader();
+            con.Close();
+        }
+
+        private void Overskrevende_Click(object sender, RoutedEventArgs e)
+        {
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "visOverskraevetUdlaan";
+            cmd.CommandType = CommandType.StoredProcedure;
+            dataTable.ItemsSource = cmd.ExecuteReader();
+            con.Close();
+        }
+
+        private void Tilgaengelige_Click(object sender, RoutedEventArgs e)
+        {
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "visTilgaengeligeEnheder";
+            cmd.CommandType = CommandType.StoredProcedure;
+            dataTable.ItemsSource = cmd.ExecuteReader();
+            con.Close();
+        }
+
+        private void Alle_Udlaan_Click(object sender, RoutedEventArgs e)
+        {
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "visAlleUdlaan";
+            cmd.CommandType = CommandType.StoredProcedure;
+            dataTable.ItemsSource = cmd.ExecuteReader();
         }
     }
 }

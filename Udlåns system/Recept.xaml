@@ -1,0 +1,28 @@
+﻿<Window x:Class="Udlåns_system.Recept"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Udlåns_system"
+        mc:Ignorable="d"
+        Title="Recept" Height="160" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Bruger" FontWeight="Bold" FontSize="20"/>
+        <TextBox Name="in_bruger" Grid.Column="1"/>
+        <TextBlock Grid.Row="1" Text="Udlånsdato" FontWeight="Bold" FontSize="20"/>
+        <TextBox Name="in_udlaan" Grid.Column="1" Grid.Row="1"/>
+        <TextBlock Grid.Row="2" Text="afleveringsdato" FontWeight="Bold" FontSize="20"/>
+        <TextBox Name="in_aflevering" Grid.Column="1" Grid.Row="2"/>
+        <Button Grid.Column="1" Grid.Row="3" Width="150" HorizontalAlignment="Right" Content="Submit" Click="Button_Click"/>
+    </Grid>
+</Window>

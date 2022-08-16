@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Udlåns_system"
         mc:Ignorable="d"
-        Title="Udlån" Height="230" Width="511" IsEnabled="False">
+        Title="Udlån" Height="200" Width="500">
     <Grid x:Name="grid" Margin="10,10,10,10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -13,15 +13,21 @@
             <ColumnDefinition Width="0.5*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="0.7*"/>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">
 
         </TextBlock>
-        <TextBlock Grid.Row="1" Text="Bruger: " FontWeight="Bold" FontSize="18" TextAlignment="Right"/>
-        <TextBox Grid.Column="1" Grid.Row="1"/>
-        <TextBlock Grid.Row="2" Text="Enhed: " FontWeight="Bold" FontSize="18" TextAlignment="Right"/>
+        <TextBlock Grid.Row="1" Text="Enhed: " FontWeight="Bold" FontSize="18" TextAlignment="Right"/>
+        <TextBox Name="enhed" Grid.Column="1" Grid.Row="1" Cursor="IBeam"/>
+        <Button Grid.Column="2" Grid.Row="1" Content="Scan" FontWeight="Bold"/>
+
+        <StackPanel Grid.Column="2" Grid.Row="2" VerticalAlignment="Bottom">
+            <Button Content="Add" Height="25" Click="Add_Click"/>
+            <Button Content="Submit" Click="Submit_Click" Height="25"/>
+        </StackPanel>
+        <DataGrid Name="Data" Grid.Column="1" Grid.Row="2"/>
     </Grid>
 </Window>
