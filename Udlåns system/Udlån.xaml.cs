@@ -50,6 +50,7 @@ namespace Udlåns_system
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
             this.con.Close();
+            Application.Current.MainWindow.IsEnabled = true;
             this.Close();
         }
     }

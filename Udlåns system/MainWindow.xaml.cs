@@ -43,39 +43,41 @@ namespace Udlåns_system
 
         private void Vis_Ud_Click(object sender, RoutedEventArgs e)
         {
+            con.Close();
             con.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = con;
             cmd.CommandText = "visUdlaant";
             cmd.CommandType = CommandType.StoredProcedure;
             dataTable.ItemsSource = cmd.ExecuteReader();
-            con.Close();
         }
 
         private void Overskrevende_Click(object sender, RoutedEventArgs e)
         {
+            con.Close();
             con.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = con;
             cmd.CommandText = "visOverskraevetUdlaan";
             cmd.CommandType = CommandType.StoredProcedure;
             dataTable.ItemsSource = cmd.ExecuteReader();
-            con.Close();
         }
 
         private void Tilgaengelige_Click(object sender, RoutedEventArgs e)
         {
+            con.Close();
             con.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = con;
             cmd.CommandText = "visTilgaengeligeEnheder";
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@enheds_type", "Computer");
             dataTable.ItemsSource = cmd.ExecuteReader();
-            con.Close();
         }
 
         private void Alle_Udlaan_Click(object sender, RoutedEventArgs e)
         {
+            con.Close();
             con.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = con;
