@@ -20,8 +20,8 @@
         </Grid.RowDefinitions>
         <Button x:Name="Udlån_btn" Content="Udlån Enhed" Cursor="Hand" Click="Udlån_Click"/>
         <Button Content="Vis Udlånte" Grid.Row="1" Click="Vis_Ud_Click"/>
-        <Button Content="Vis Overskrevet" Grid.Row="2" Click="Overskrevende_Click"/>
-        <Button Content="Tilgænelige Computere" Grid.Row="3" Click="Tilgaengelige_Click"/>
+        <Button Content="Vis Overskredet" Grid.Row="2" Click="Overskrevende_Click"/>
+        <Button Content="Tilgængelige Computere" Grid.Row="3" Click="Tilgaengelige_Click"/>
         <Button Content="Alle Udlån" Grid.Row="4" Click="Alle_Udlaan_Click"/>
         <DataGrid Name="dataTable" Grid.Column="1" Grid.RowSpan="5"/>
     </Grid>
